@@ -2,6 +2,16 @@
   <img src="mimosa-fl.png" alt="mimosa-fl logo" width="250">
 </p>
 
+## What's mimosa
+
+**mimosa-fl** is a **thin fork** of the [Flower](https://github.com/flwrlabs/flower) framework that brings **Clustered Federated Learning (CFL)** in as a first-class capability. Clients are grouped by the cosine similarity of their weight-update directions, and each cluster keeps its own model - enabling federated **multi-task learning** on heterogeneous (non-IID) data without ever sharing raw data.
+
+### Why "mimosa"?
+
+*Mimosa pudica* is the "sensitive plant", whose leaves fold together when touched - just as clients with similar updates fold into their own cluster, each around its own model.
+
+<br>
+
 # mimosa-fl: Clustered Federated Learning
 
 > **Paper:** [Clustered Federated Learning: Model Isolation Distributed Training of Heterogeneous Data](https://arxiv.org/abs/1910.01991)
@@ -84,7 +94,7 @@ For a step-by-step walkthrough with visualizations (training curves, cluster tre
 
 ## Expected Results
 
-Results from the [quickstart notebook](examples/quickstart-cfl-pytorch/quickstart-cfl-pytorch.ipynb) with 10 simulated clients.
+Results from the [quickstart notebook](examples/quickstart-cfl-pytorch/quickstart-cfl-pytorch.ipynb) with 10 simulated clients and 50 federated rounds.
 
 **Pre-processing:** Clients are split into two groups (digits 0-4 vs 5-9) to create a pathological non-IID distribution. Half of the clients also receive rotation noise (90 degrees) on their training samples, simulating real-world data heterogeneity where clients have similar but not identical distributions.
 
@@ -92,10 +102,10 @@ CFL detects the two data clusters at round 5 and splits into two sub-models. Eac
 
 | Method | Test Accuracy | Test Precision |
 |---|---|---|
-| FedAvg | ~70% | ~92% |
-| CFL | ~90% | ~89% |
+| FedAvg | ~86% | ~97% |
+| CFL | ~97% | ~97% |
 
-Precision is macro-averaged across all 10 clients. FedAvg shows slightly higher precision but much lower accuracy: its single global model is conservative (only fires when confident), while CFL's per-cluster models recover far more correct predictions - which is what drives the accuracy gap.
+Precision is macro-averaged across all 10 clients. After 50 rounds both methods reach similar precision (~97%), but CFL's per-cluster models recover far more correct predictions: ~97% accuracy vs FedAvg's ~86%. FedAvg's single global model has to compromise across both digit groups, so it stays conservative (only fires when confident) - which keeps its precision high while its accuracy lags behind CFL.
 
 ### Non-IID Data Distribution
 
