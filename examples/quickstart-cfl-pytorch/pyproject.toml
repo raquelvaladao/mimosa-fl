@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "quickstart-cfl-pytorch"
+version = "0.1.0"
+description = "Clustered Federated Learning (CFL) with PyTorch and Flower"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "mimosa-fl>=0.1.0",
+    "flwr[simulation]>=1.28.0",
+    "torch>=2.1.0",
+    "torchvision>=0.16.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.flwr.app]
+publisher = "mimosa-fl"
+fab-format-version = 1
+flwr-version-target = "1.33.0"
+
+[tool.flwr.app.components]
+serverapp = "server:app"
+clientapp = "client:app"
+
+[tool.flwr.app.config]
+num-server-rounds = 10
+learning-rate = 0.01
+batch-size = 32
+local-epochs = 1
+num-clients = 10
+eps-1 = 0.35
+eps-2 = 0.45
+min-cluster-size = 3
+max-tree-depth = 3
+min-split-round = 3
+
+[tool.flwr.federations]
+local-sim = "flwr-simulation:fed@localhost"

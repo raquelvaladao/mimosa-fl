@@ -1,0 +1,9 @@
+flwr[simulation]>=1.28.0,<1.34.0
+mimosa-fl>=0.1.0
+torch>=2.1.0
+torchvision>=0.16.0
+scikit-learn>=1.2.0
+matplotlib>=3.7.0
+numpy>=1.24.0
+PyYAML>=6.0
+jupyter>=1.0.0

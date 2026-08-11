@@ -1,0 +1,239 @@
+# =============================================================================
+# mimosa-fl .gitignore
+# =============================================================================
+# This file prevents accidental commits of:
+#   - Build artifacts & cache
+#   - Virtual environments & local config
+#   - IDE / editor files
+#   - OS metadata
+#   - Secrets & credentials
+#   - Machine-learning artifacts (models, checkpoints, datasets, logs)
+#   - Experiment outputs
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# 1. Python build artifacts
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+
+# ---------------------------------------------------------------------------
+# 2. Virtual environments & local configuration
+# ---------------------------------------------------------------------------
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv
+.python-version
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ---------------------------------------------------------------------------
+# 3. IDE / Editor files
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+*.orig
+*.rej
+
+# ---------------------------------------------------------------------------
+# 4. OS metadata
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------------
+# 5. Secrets & credentials
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+token*
+api_key*
+*.secrets.yaml
+*.secrets.yml
+
+# ---------------------------------------------------------------------------
+# 6. Machine-learning artifacts
+# ---------------------------------------------------------------------------
+# Models & checkpoints
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.onnx
+*.tflite
+*.pb
+*.safetensors
+*.joblib
+*.pickle
+*.pkl
+models/
+checkpoints/
+
+# Datasets & raw data (can be huge and/or sensitive)
+data/
+datasets/
+raw_data/
+*.csv
+*.tsv
+*.jsonl
+*.parquet
+*.hdf5
+*.h5
+*.npz
+*.npy
+
+# MNIST / torchvision cache
+*.tar.gz
+*.zip
+*.gzip
+train-images*
+train-labels*
+t10k-images*
+t10k-labels*
+
+# ---------------------------------------------------------------------------
+# 7. Experiment outputs & logs
+# ---------------------------------------------------------------------------
+runs/
+results/
+outputs/
+logs/
+log/
+*.log
+*.out
+*.err
+wandb/
+mlruns/
+tensorboard/
+lightning_logs/
+
+# Plots & generated figures
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.eps
+plots/
+figures/
+
+# ---------------------------------------------------------------------------
+# 8. Jupyter / Notebook artifacts
+# ---------------------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+*.nbconvert.ipynb
+profile_default/
+ipython_config.py
+
+# ---------------------------------------------------------------------------
+# 9. Testing & coverage
+# ---------------------------------------------------------------------------
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# ---------------------------------------------------------------------------
+# 10. Documentation build artifacts
+# ---------------------------------------------------------------------------
+docs/_build/
+docs/_static/
+docs/_templates/
+site/
+*.mo
+*.pot
+
+# ---------------------------------------------------------------------------
+# 11. Flower upstream fork boundary
+# ---------------------------------------------------------------------------
+# If you rebase against upstream Flower, avoid committing their untracked
+# build artifacts or local patches.
+framework/**/__pycache__/
+framework/**/*.egg-info/
+agent/**/__pycache__/
+agent/**/*.egg-info/
+
+# ---------------------------------------------------------------------------
+# 12. CLI / Tooling artifacts
+# ---------------------------------------------------------------------------
+.mypy_cache/
+.dmypy.json
+.dmypy.json.5
+dmypy.json
+.pyre/
+.pytype/
+ruff_cache/
+
+# ---------------------------------------------------------------------------
+# 13. Node tooling (if docs use JS build tools)
+# ---------------------------------------------------------------------------
+node_modules/
+package-lock.json
+yarn.lock
+
+# ---------------------------------------------------------------------------
+# 14. Miscellaneous temp files
+# ---------------------------------------------------------------------------
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# ---------------------------------------------------------------------------
+# 15. Local dev files (specs, research roadmap, evaluation)
+# ---------------------------------------------------------------------------
+.localdevcfl/
+
+# =============================================================================
+# END
+# =============================================================================
