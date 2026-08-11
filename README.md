@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="mimosa-fl.png" alt="mimosa-fl logo" width="400">
+  <img src="mimosa-fl.png" alt="mimosa-fl logo" width="250">
 </p>
 
 # mimosa-fl: Clustered Federated Learning
