@@ -156,6 +156,11 @@ lightning_logs/
 plots/
 figures/
 
+# README assets (tracked despite image ignore above)
+!mimosa-fl.png
+!examples/quickstart-cfl-pytorch/_static/
+!examples/quickstart-cfl-pytorch/_static/*.png
+
 # ---------------------------------------------------------------------------
 # 8. Jupyter / Notebook artifacts
 # ---------------------------------------------------------------------------
